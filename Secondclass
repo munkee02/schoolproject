@@ -1,0 +1,40 @@
+public class Secondclass {
+	private double fixedCompensation;
+	private double percentage;
+	
+	public Secondclass() {
+	
+	
+	}
+		public Secondclass(double fixedCompensation, double percentage) {
+			this.fixedCompensation = fixedCompensation;
+			this.percentage = percentage;
+		}
+		
+		public double getfixedCompensation() {
+			return fixedCompensation;
+		}
+		public void setFixedCompensation(double fixedCompensation) {
+			this.fixedCompensation = fixedCompensation;
+		}
+		public double getpercentage() {
+			return percentage;
+		}
+		public void setpercentage(double percentage) {
+			this.percentage = percentage;
+		}
+		public double calculateTotalCompensation(double salesAmount) {
+			double salesTarget = 100000;
+			double salesneededforincentive = .80 * salesTarget;
+			double commission;
+			double acceleration = 1.25;
+				if(salesAmount > salesneededforincentive && salesAmount <= salesTarget) {
+					commission = getpercentage();
+				}else if(salesAmount > salesTarget) {
+					commission = acceleration;
+				}else{
+					commission = 0;
+				}
+				return getfixedCompensation() + (salesAmount * commission);
+		}
+	}
