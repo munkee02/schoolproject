@@ -1,0 +1,28 @@
+import java.text.NumberFormat;
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Firstclass {
+	public static void main(String[]args) {
+		NumberFormat numberFormat = NumberFormat.getCurrencyInstance(Locale.US);
+		Scanner input = new Scanner(System.in);
+		System.out.print("Enter your annual sales here: ");
+		double sales = input.nextDouble();
+		double fixedSalary = 50000;
+		double commission = .15;
+		
+		Secondclass secondClass = new Secondclass(fixedSalary, commission);
+			System.out.println("Compensation Total: " + numberFormat.format(secondClass.calculateTotalCompensation(sales)));
+		double maxSales = 1.25 * sales;
+		double salesAmount = sales;
+		
+			System.out.println("Total Sales\t\tTotal Compensation");
+				while (salesAmount <= maxSales) {
+					System.out.println(numberFormat.format(salesAmount) + "\t\t" + numberFormat.format(Secondclass.calculateTotalCompensation(sales)));
+				salesAmount = salesAmount + 5000;
+				 
+				}
+		
+	}
+
+}
